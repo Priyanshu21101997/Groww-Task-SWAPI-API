@@ -37,6 +37,7 @@ class HomeFragment : DaggerFragment(), Onclick {
     private var totalItems = 0
     private var isScrolling = false
     private var pageNo = 0;
+    private lateinit var adapter:CustomAdapter
 
     companion object {
 
@@ -68,7 +69,7 @@ class HomeFragment : DaggerFragment(), Onclick {
 
         homeBinding.recyclerView.layoutManager = LinearLayoutManager(activity)
         val data = ArrayList<Result>()
-        val adapter = CustomAdapter(data)
+        adapter = CustomAdapter()
         adapter.setListener(this)
         homeBinding.recyclerView.adapter = adapter
 
@@ -98,7 +99,7 @@ class HomeFragment : DaggerFragment(), Onclick {
 
         mainViewModel!!.quotesLiveData.observe(viewLifecycleOwner) {
             Log.d("RE_LIFE", "onViewCreated: ${it.size} ")
-            adapter.updateData(it)
+            adapter.submitList(it)
         }
 
         mainViewModel!!.progressLD.observe(viewLifecycleOwner) {
@@ -120,6 +121,11 @@ class HomeFragment : DaggerFragment(), Onclick {
         fragmentTransaction?.replace(R.id.container, fragment, "myFragmentTag")?.addToBackStack(null)
 
         fragmentTransaction?.commit()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        adapter.setListener(null)
     }
 
 }
