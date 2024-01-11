@@ -1,7 +1,9 @@
 package com.example.skeletonapplication.di
 
-import com.example.skeletonapplication.ui.DetailFragment
-import com.example.skeletonapplication.ui.HomeFragment
+import com.example.skeletonapplication.ui.List.BottomSheet
+import com.example.skeletonapplication.ui.detail.DetailFragment
+import com.example.skeletonapplication.ui.List.ListFragment
+import com.example.skeletonapplication.ui.SplashFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -9,8 +11,14 @@ import dagger.android.ContributesAndroidInjector
 abstract class FragmentBuildersModule {
 
     @ContributesAndroidInjector
-    abstract fun contributesHomeFragment(): HomeFragment
+    abstract fun contributesHomeFragment(): ListFragment
 
     @ContributesAndroidInjector
     abstract fun contributesDetailFragment(): DetailFragment
+
+    @ContributesAndroidInjector
+    abstract fun contributesBottomSheetFragment(): BottomSheet
+
+    @ContributesAndroidInjector
+    abstract fun contributesSplashFragment(): SplashFragment
 }

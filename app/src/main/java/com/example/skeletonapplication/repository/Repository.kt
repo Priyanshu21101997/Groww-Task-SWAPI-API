@@ -1,31 +1,34 @@
 package com.example.skeletonapplication.repository
 
-import androidx.lifecycle.LiveData
-import com.example.skeletonapplication.api.QuoteService
-import com.example.skeletonapplication.db.QuoteDatabase
-import com.example.skeletonapplication.models.QuoteList
-import com.example.skeletonapplication.models.Result
+import com.example.skeletonapplication.api.StarWarsService
+import com.example.skeletonapplication.db.StarWarsDatabase
+import com.example.skeletonapplication.models.CharactersList
+import com.example.skeletonapplication.models.Films
+import com.example.skeletonapplication.models.Results
 import io.reactivex.Completable
 import io.reactivex.Single
 import javax.inject.Inject
 
 class Repository @Inject constructor(
-    private val quoteService: QuoteService,
-    private val quoteDatabase: QuoteDatabase,
+    private val starWarsService: StarWarsService,
+    private val starWarsDatabase: StarWarsDatabase,
 ) {
 
 
-
-    fun getQuotesFromApi(page: Int): Single<QuoteList> {
-        return quoteService.getQuotes(page)
+    fun getCharactersFromApi(page: Int): Single<CharactersList> {
+        return starWarsService.getCharacters(page)
     }
 
-    fun storeQuotesInDB(result: List<Result>): Completable {
-        return quoteDatabase.quoteDao().addQuotes(result)
+    fun storeCharactersInDB(result: List<Results>): Completable {
+        return starWarsDatabase.starWarsDao().addCharacters(result)
     }
 
-    fun getQuotesFromDB(pageNo: Int): Single<List<Result>> {
-      return quoteDatabase.quoteDao().getQuotes(pageNo)
+    fun getCharactersFromDB(pageNo: Int): Single<List<Results>> {
+        return starWarsDatabase.starWarsDao().getCharacters(pageNo)
+    }
+
+    fun getFilmsFromApi(film: String): Single<Films> {
+        return starWarsService.getFilm(film)
     }
 
 }

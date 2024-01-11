@@ -1,21 +1,19 @@
 package com.example.skeletonapplication.di
 
-import android.content.Context
 import androidx.room.Room
-import com.example.skeletonapplication.MyApplication
-import com.example.skeletonapplication.api.QuoteService
-import com.example.skeletonapplication.db.QuoteDatabase
+import com.example.skeletonapplication.StarWarsApplication
+import com.example.skeletonapplication.api.StarWarsService
+import com.example.skeletonapplication.db.StarWarsDatabase
 import com.example.skeletonapplication.utils.AppConstants
 import dagger.Module
 import dagger.Provides
-import dagger.android.AndroidInjector
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 @Module
-class AppModule(private val application: MyApplication)  {
+class AppModule(private val application: StarWarsApplication) {
 
     @Singleton
     @Provides
@@ -29,20 +27,20 @@ class AppModule(private val application: MyApplication)  {
 
     @Provides
     @Singleton
-    fun provideAPIService(retrofit: Retrofit): QuoteService {
-        return retrofit.create(QuoteService::class.java)
+    fun provideAPIService(retrofit: Retrofit): StarWarsService {
+        return retrofit.create(StarWarsService::class.java)
     }
 
     @Singleton
     @Provides
-    fun providesRoomDB(): QuoteDatabase {
-        return Room.databaseBuilder(application,
-            QuoteDatabase::class.java,
-            "quoteDB")
+    fun providesRoomDB(): StarWarsDatabase {
+        return Room.databaseBuilder(
+            application,
+            StarWarsDatabase::class.java,
+            "starWarsDB"
+        )
             .build()
     }
-
-
 
 
 }

@@ -1,5 +1,14 @@
 <resources>
-    <string name="app_name">SkeletonApplication</string>
+    <string name="app_name">StarWars</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="name">Name</string>
+    <string name="creation">Creation</string>
+    <string name="updation">Updation</string>
+    <string name="sortBy">SORT BY</string>
+    <string name="showMales">SHOW MALES</string>
+    <string name="showFemales">SHOW FEMALES</string>
+    <string name="no_data">SOME ERROR OCCURRED.... NO DATA AVAILABLE</string>
+
+
 </resources>

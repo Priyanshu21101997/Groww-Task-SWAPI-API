@@ -15,14 +15,14 @@ class MainActivity : DaggerAppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-
-        addHomeFragment()
+        showSplashScreen()
     }
 
-    private fun addHomeFragment() {
+    private fun showSplashScreen() {
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
-        val fragment: Fragment = HomeFragment.newInstance()
-        fragmentTransaction.add(R.id.container, fragment, "myFragmentTag")
-        fragmentTransaction.commit()    }
+        val fragment: Fragment = SplashFragment.newInstance()
+        fragmentTransaction.replace(R.id.container, fragment, "splashFragment")
+        fragmentTransaction.commit()
+    }
 }

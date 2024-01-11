@@ -1,7 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    id ("kotlin-kapt")
+    id("kotlin-kapt")
 
 }
 
@@ -54,9 +54,6 @@ dependencies {
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.1")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
-
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
 
@@ -64,26 +61,25 @@ dependencies {
     kapt("androidx.room:room-compiler:2.6.0")
     implementation("androidx.room:room-ktx:2.6.0")
 
-    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2") // For kotlin extension
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2") // For kotlin extension
 
-    implementation ("io.reactivex.rxjava2:rxandroid:2.1.1")
-    implementation ("io.reactivex.rxjava2:rxjava:2.2.6")
+    implementation("io.reactivex.rxjava2:rxandroid:2.1.1")
+    implementation("io.reactivex.rxjava2:rxjava:2.2.6")
 
     // Rx-Retrofit Call Adapter
-    implementation ("com.squareup.retrofit2:adapter-rxjava2:2.5.0") // Retrofit call adapter
+    implementation("com.squareup.retrofit2:adapter-rxjava2:2.5.0") // Retrofit call adapter
 
     // Dagger
-    implementation ("com.google.dagger:dagger:2.42")
-    kapt ("com.google.dagger:dagger-compiler:2.42")
+    implementation("com.google.dagger:dagger:2.42")
+    kapt("com.google.dagger:dagger-compiler:2.42")
 
-    kapt ("org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.4.2")
+    kapt("org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.4.2")
 
-    implementation ("com.google.dagger:dagger-android:2.42")
-    implementation ("com.google.dagger:dagger-android-support:2.42")
-    kapt ("com.google.dagger:dagger-android-processor:2.42")
+    implementation("com.google.dagger:dagger-android:2.42")
+    implementation("com.google.dagger:dagger-android-support:2.42")
+    kapt("com.google.dagger:dagger-android-processor:2.42")
 
     implementation("androidx.room:room-rxjava2:2.6.0")
-
 
 
 }

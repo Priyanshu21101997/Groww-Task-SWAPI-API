@@ -1,19 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <FrameLayout
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.DetailFragment">
+        tools:context=".ui.List.ListFragment">
 
-        <!-- TODO: Update blank fragment layout -->
-        <TextView
-            android:id="@+id/comment"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewFilms"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    </FrameLayout>
+        <ProgressBar
+            android:id="@+id/progress_circular"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:visibility="gone"
+            android:elevation="10dp"
+            android:indeterminateTint="@color/yellow"
+            app:layout_constraintBottom_toBottomOf="@+id/recyclerViewFilms"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/errorWidget"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:visibility="gone"
+            android:text="@string/no_data"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </layout>
